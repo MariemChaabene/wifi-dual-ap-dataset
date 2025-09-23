@@ -2,7 +2,7 @@ Wi-Fi Performance Monitoring and Dataset Generation
 ===================================================
 
 1) Project Overview
--------------------
+
 This project was developed during my M1 engineering internship at Universitat Pompeu Fabra (Barcelona).
 It collects Wi-Fi performance metrics from OpenWrt access points and combines them with iPerf traffic
 measurements to build structured datasets for analysis and Machine-Learning-based optimization.
@@ -11,29 +11,28 @@ Goal:
 - Automate monitoring of Wi-Fi parameters (channel, bandwidth, RSSI, retries, throughput, latency, jitter, etc.).
 - Merge network metrics with traffic performance data.
 - Export clean, analysis-ready datasets (JSONL/CSV).
-
+------------------------------------------------------------------------------------------------------------------------
 
 2) Context
-----------
+
 This work is part of a research effort on Wi-Fi optimization using Machine Learning.
 
 Main components:
 - OpenWrt-based access points for configuration and monitoring.
 - Linux client/server machines for iPerf3 testing.
 - Bash and Python scripts for automation, data collection, and analysis.
-
-
+------------------------------------------------------------------------------------------------------------------------
 3) Requirements
----------------
+
 - Linux environment (tested on Ubuntu 22.04)
 - OpenWrt routers with SSH access enabled
 - Python 3.10+
 - iPerf3 installed on both client and server machines
 - jq and tmux for JSON processing and persistent sessions
-
+------------------------------------------------------------------------------------------------------------------------
 
 4) Architecture (Final Experiment)
-----------------------------------
+
 The final setup consists of:
 - 1 controller machine (runs orchestration scripts).
 - 2 OpenWrt access points: AP1 and AP2.
@@ -45,10 +44,10 @@ Reference images (stored in the repo):
 - Images/System_Architecture.png
 - Images/Commande_Client.jpg
 - Images/Commande_Controller.jpg
+------------------------------------------------------------------------------------------------------------------------
 
+5) Repository Layout
 
-5) Repository Layout (excerpt)
-------------------------------
 Exp2/
   └── Exp2.2/
       ├── Scripts/
@@ -56,9 +55,10 @@ Exp2/
       │   ├── AP2  root@192.168.1.2/    # Scripts to run from Client2 (wired to AP2) in the AP2 session (via SSH)
       │   └── Controller/               # Orchestration scripts to run on the controller machine
       └── Exp2.2.ipynb
+------------------------------------------------------------------------------------------------------------------------
 
 6) Usage & Reproducibility (Step-by-Step)
------------------------------------------
+
 A) Place scripts
    - Put all experiment scripts under: Exp2/Exp2.2/Scripts
    - Ensure they are executable: chmod +x *.sh
@@ -93,17 +93,17 @@ G) Convert to a flat, analysis-ready dataset
    - Open Exp2/Exp2.2.ipynb (Jupyter Lab).
    - Run the first cell to load dataset_dual_ap.jsonl and produce a flattened CSV/JSONL.
    - Result: a clean dataset ready for EDA/ML (e.g., dataset_dual_ap.csv).
-
+------------------------------------------------------------------------------------------------------------------------
 
 7) Results
-----------
+
 - Structured dataset (JSONL/CSV) combining Wi-Fi (OpenWrt) and traffic (iPerf3) metrics.
 - Exploratory analysis in Python (Jupyter Lab / pandas).
 - Insights on how parameters (channel, bandwidth, MCS, etc.) affect latency, throughput, and stability.
-
+------------------------------------------------------------------------------------------------------------------------
 
 8) Reproducibility Checklist
-----------------------------
+
 [ ] iPerf3 servers running on both wireless servers (iperf3 -s)
 [ ] collect_loop_exp2.sh running on BOTH AP/client sides
 [ ] dual_ap_controller.sh running on the controller
@@ -112,19 +112,19 @@ G) Convert to a flat, analysis-ready dataset
 [ ] Wi-Fi associations verified (server1↔AP1, server2↔AP2)
 [ ] dataset_dual_ap.jsonl produced
 [ ] Notebook Exp2/Exp2.2.ipynb executed to generate flattened dataset
-
+------------------------------------------------------------------------------------------------------------------------
 
 9) Skills Developed
--------------------
+
 - Wi-Fi network monitoring & optimization (OpenWrt, iPerf3)
 - Bash scripting & automation
 - Data structuring and logging (JSONL, CSV)
 - Exploratory Data Analysis with Python
 - Multi-AP experiment design and orchestration
-
+------------------------------------------------------------------------------------------------------------------------
 
 10) Author
-----------
+
 Mariem Chaabene
 Final-year Engineering Student — Embedded Systems & IoT — Phelma, Grenoble INP-UGA
 LinkedIn: https://www.linkedin.com/in/mariem-chaabene-6569a4287/
