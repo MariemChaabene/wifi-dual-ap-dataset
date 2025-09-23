@@ -1,6 +1,6 @@
 #!/bin/sh
 # ------------------------------------------------------------------------------
-#  collect_loop3.sh   `^s  assemble Wi-Fi snapshot + iPerf métriques + TX_DELTA
+#  collect_loop3.sh  assemble Wi-Fi snapshot + iPerf métriques + TX_DELTA
 # ------------------------------------------------------------------------------
 
 OUT_FILE="wifi_log2.jsonl"
@@ -23,7 +23,7 @@ while true; do
   [ -z "$TXDELTA_JSON" ] && TXDELTA_JSON="{}"           # si absent  f^r objet vide
 
   ###########################################################################
-  # 3) Vérifier la présence d `^yun résultat iPerf récent (<70 s)
+  # 3) Vérifier la présence d un résultat iPerf récent (<70 s)
   ###########################################################################
   PERF_JSON="{}"            # valeur par défaut si rien de frais
   if [ -f /tmp/last_iperf_metric.jsonl ]; then
